@@ -1,0 +1,5 @@
+<h2>Project list</h2>
+<% @projects.each do |project| %>
+<p><small><%= project.created_at %></small> <%= project.name %></p>
+<% end %>
+<%= link_to "New Project", new_project_path %>

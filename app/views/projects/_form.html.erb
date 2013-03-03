@@ -1,5 +1,7 @@
 <%= form_for @project do |f| %>
-  <div><%= f.error_messages %></div>
+  <div>
+    <%= render 'snippets/error_messages', target: @project %>
+  </div>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>

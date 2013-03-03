@@ -1,4 +1,6 @@
 <% title(@project.name, "Projects") %>
 <h2>Show project</h2>
 <p><small><%= @project.created_at %></small> <%= @project.name %></p>
-<%= link_to "Project list page", projects_path %>
+
+<hr />
+<%= link_to "Projects", projects_path %> | <%= link_to "Edit Project", edit_project_path(@project) %>

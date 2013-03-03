@@ -53,16 +53,26 @@ input[type=file] {
    margin-bottom: 10px;
 }
 
+small {
+  color: #555;
+  font-size: 60%;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #aaa;
+  margin: 10px 0;
+}
+
+li {
+  list-style: none;
+}
+
 .flash {
    padding: 10px;
    -moz-border-radius: 10px;
    -webkit-border-radius: 10px;
    font-weight: bold;
-}
-
-small {
-  color: #555;
-  font-size: 60%;
 }
 
 #notice {

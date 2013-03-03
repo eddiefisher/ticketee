@@ -5,7 +5,7 @@ Feature: Creating projects
   
   Background:
     Given I am on the homepage
-    When I follow "New Project"
+    When  I follow "New Project"
   
   Scenario: Creating a project
     And   I fill in "Name" with "TextMate 2"

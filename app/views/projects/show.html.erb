@@ -1,7 +1,16 @@
 <% title(@project.name, "Projects") %>
 <h2>Show project</h2>
 <p><small><%= @project.created_at %></small> <%= @project.name %></p>
-
+<div id="ticket">
+  <h3>Ticket list</h3>
+  <ul id='tickets'>
+    <% @project.tickets.each do |ticket| %>
+      <li>#<%= ticket.id %> - <%= link_to ticket.title, [@project, ticket] %></li>
+    <% end %>
+  </ul>
+  <hr />
+  <%= link_to "New Ticket", new_project_ticket_path(@project) %>
+</div>
 <hr />
 <%= link_to "Projects", projects_path %> |
 <%= link_to "Edit Project", edit_project_path(@project) %> |

@@ -1,0 +1,217 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+@mixin border-radius($radius: 5px) {
+ -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+         border-radius: $radius;
+}
+
+@mixin box-shadow($h-shadow, $v-shadow, $blur, $color) {
+ -webkit-box-shadow: $h-shadow $v-shadow $blur $color;
+    -moz-box-shadow: $h-shadow $v-shadow $blur $color;
+         box-shadow: $h-shadow $v-shadow $blur $color;
+}
+
+@mixin transition($transition-property: width, $transition-timing-function: linear, $transition-delay: 2s) {
+ -webkit-transition: $transition-property $transition-timing-function $transition-delay;
+    -moz-transition: $transition-property $transition-timing-function $transition-delay;
+         transition: $transition-property $transition-timing-function $transition-delay;
+}
+
+* { padding: 0; margin: 0; }
+
+html { background: white; }
+
+body {
+  font: 13pt "Myriad Pro", Helvetica;
+  margin: 5px 10% 0 10%;
+  height: 100%;
+  padding: 30px;
+  @include border-radius(3px);
+}
+
+h1 { margin-bottom: 20px; }
+
+nav { margin: 10px 0 10px 0; }
+
+a {
+  color: #2ba6cb;
+  line-height: inherit;
+  &:visited, &:focus {
+    color: #2795b6;
+  }
+  &:hover {
+    color: #2795b6;
+    text-decoration: none;
+  }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+form input[type="number"],
+input[type="url"],
+input[type="tel"],
+textarea{
+//  width: 76%;
+  border: 1px solid #c9d0d6;
+  @include border-radius(3px);
+  font-size: 0.8em;
+  outline: none;
+  padding: 3px 4px 2px;
+  margin-bottom: 5px;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+form input[type="number"]:focus,
+input[type="url"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  border: 1px solid #99a2aa;
+  @include box-shadow(0, 0, 4px, #99a2aa);
+  @include transition(border, linear, 0.2s);
+  @include transition(box-shadow, linear, 0.2s);
+}
+
+input[type="file"] {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+small {
+  color: #555;
+  font-size: 60%;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #aaa;
+  margin: 10px 0;
+}
+
+li { list-style: none; }
+
+#error_explanation {
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+.flash {
+  padding: 10px;
+  @include border-radius(5px);
+  font-weight: bold;
+  
+  &#notice { background: #85FF00; color: black; }
+  &#alert { background: #FF3444; }
+}
+
+#permissions {
+  border: 1px solid #789B2F;
+  
+  td, th {
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+  }
+  thead th {
+    background: #DFFF77;
+    border-bottom: 1px solid #789B2F;
+    padding: 10px;
+  }
+  tr {
+    &.odd  { background: #F0FF91; }
+    &.even { background: #C2EC4B; }
+  }
+}
+
+ul#tickets {
+  padding: 15px;
+  list-style-type: none;
+  
+  li { margin-bottom: 10px; }
+  .state { padding-right: 5px; float: left; }
+}
+
+#ticket, .comment {
+  margin: 15px 0 15px 0;
+  padding: 15px;
+  background: #eaeaea;
+  border: 1px solid #e0e0e0;
+  @include border-radius(5px);
+}
+
+#ticket {
+  a { color: #67A300; }
+  menu { font-size: 75%; }
+  #ticket section { clear: both; }
+  #tags { margin-top: 20px; }
+  .tag {
+    background: #232323;
+    @include border-radius(8px);
+    color: white;
+    padding: 8px;
+    
+    a { color: white; }
+    .delete { font-size: 125%; text-decoration: none; }
+  }
+}
+
+menu, #ticket .state, .states { float: right; }
+
+.state {
+  display: inline;
+  width: 4em;
+  text-align: center;
+  font-weight: bold;
+  @include border-radius(5px);
+  margin-right: 10px;
+  font-size: 80%;
+  padding: 5px;
+}
+
+.new_comment {
+  padding: 15px;
+  background: #eaeaea;
+  color: black;
+  @include border-radius(5px);
+}
+
+.comment, .new_comment {
+  width: 75%;
+}
